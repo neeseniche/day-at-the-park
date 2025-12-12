@@ -40,13 +40,13 @@ const timestamps = [
     {
         time: 187, // Pause at 187 seconds
         links: [
-            { label: "CONTINUE", target: 196 }
+            { label: "CONTINUE", target: 197 }
         ]
     },
      {
         time: 204, // Pause at 204 seconds
         links: [
-            { label: "DIG", target: 213 },
+            { label: "DIG", target: 214 },
             { label: "MOVE ON", target: 225 },
         ]
     },
