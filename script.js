@@ -46,7 +46,7 @@ const timestamps = [
      {
         time: 204, // Pause at 204 seconds
         links: [
-            { label: "DIG", target: 214 },
+            { label: "DIG", target: 215 },
             { label: "MOVE ON", target: 225 },
         ]
     },
