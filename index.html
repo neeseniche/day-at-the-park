@@ -1,0 +1,74 @@
+<!DOCTYPE html>  <!-- Tells browser this is an HTML5 document -->
+<html lang="en">  <!-- Root element, lang="en" means content is in English -->
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bytesized&display=swap" rel="stylesheet">
+    <!-- The head contains information ABOUT the page, not visible content -->
+    <meta charset="UTF-8">  <!-- Character encoding for proper text display -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  <!-- Makes page mobile-friendly -->
+    <title>Day at the Park</title>  <!-- Text shown in browser tab -->
+    <link rel="stylesheet" href="styles.css">  <!-- Links to external CSS file -->
+</head>
+<body>
+    <!-- The body contains all VISIBLE content on the page -->
+    
+    <!-- div is a generic container element, class gives it styling from CSS -->
+    <div class="container">
+        
+        <!-- header is a semantic element for the top section of the page -->
+        <header>
+            <h1>Day at the Park</h1>  <!-- h1 = heading level 1, the main title -->
+        </header>
+
+        <!-- Container for the video and all overlays -->
+        <div class="video-container">
+            
+            <!-- iframe embeds content from another website (Vimeo) -->
+            <!-- id gives this element a unique identifier for CSS and JavaScript -->
+            <!-- Replace 76979871 with your actual Vimeo video ID -->
+            <!-- ?api=1 enables JavaScript control, &controls=0 hides Vimeo's controls -->
+            <iframe id="vimeo-player" 
+                    src="https://player.vimeo.com/video/1145815818?api=1&controls=0"
+                    width="854" 
+                    height="480
+                    " 
+                    frameborder="0" 
+                    allow="autoplay; fullscreen; picture-in-picture" 
+                    allowfullscreen>
+            </iframe>
+
+            <!-- button element creates a clickable button -->
+            <!-- The id and class connect this to JavaScript and CSS -->
+            <button id="play-button" class="play-button">
+                <span class="play-icon">▶</span>  <!-- span groups inline content, contains play triangle -->
+            </button>
+
+            <!-- This div is the dark overlay with navigation links -->
+            <!-- class="hidden" means it starts invisible (CSS has display: none for .hidden) -->
+            <div id="links-overlay" class="links-overlay hidden">
+                <div class="overlay-content">
+                    <h2>CHOOSE:</h2>  <!-- h2 = heading level 2, smaller than h1 -->
+                    
+                    <!-- This empty div gets filled with buttons by JavaScript -->
+                    <div id="links-container" class="links-container">
+                        <!-- Links will be dynamically inserted here by script.js -->
+                    </div>
+                    
+                    <!-- Button to close overlay and continue watching -->
+                    <button id="close-overlay" class="close-button">Continue Watching</button>
+                </div>
+            </div>
+        </div>
+
+    </div>  <!-- Closes the container div -->
+    
+    <!-- script elements load JavaScript code -->
+    <!-- This loads Vimeo's Player API library from their server -->
+    <script src="https://player.vimeo.com/api/player.js"></script>
+    
+    <!-- This loads our custom JavaScript file (must come after Vimeo's library) -->
+    <script src="script.js"></script>
+    
+</body>  <!-- Closes the body element -->
+</html>  <!-- Closes the html element -->

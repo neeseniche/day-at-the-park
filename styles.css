@@ -1,0 +1,228 @@
+/* ============================================
+   BASIC STYLES - Easy to understand and modify
+   ============================================ */
+
+/* CSS SYNTAX: selector { property: value; }
+   The * selector targets ALL elements on the page */
+* {
+    margin: 0;          /* Remove default outer spacing */
+    padding: 0;         /* Remove default inner spacing */
+    box-sizing: border-box;  /* Makes width/height calculations easier */
+}
+
+/* The body element is the main container for all visible content */
+body {
+ 
+    .bytesized-regular {
+  font-family: "Bytesized", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+    font-family: 'Bytesized', sans-serif;  /* Sets the font for the entire page */
+    font-size: 5px;            /* Base font size for the page */ 
+    background-color: #3F6021;  /* Light gray background (#hexcode) */
+    padding: 20px;              /* Space around the edges */
+    color: #6f5c4c;                /* Dark gray text color */
+}
+
+/* Classes start with a dot (.) - This targets any element with class="container" */
+.container {
+    max-width: 900px;           /* Maximum width of 900 pixels */
+    margin: 0 auto;             /* 0 top/bottom, auto left/right = centered */
+    background-color: white;    /* White background */
+    border: 1px solid #ddd;     /* 1px wide, solid line, light gray color */
+}
+
+/* ============================================
+   HEADER SECTION
+   ============================================ */
+
+/* The header element contains the page title */
+header {
+    color: #60de8a;                /* Dark gray text color */
+    background-color: #6f5c4c;  /* Medium gray background */
+    color: white;                /* White text */
+    padding: 30px;               /* Space inside the header */
+    text-align: center;          /* Center the text horizontally */
+}
+
+/* Targeting h1 elements that are inside the header */
+header h1 {
+    font-size: 5rem;        /* Font size: 2rem = 2x the default size */
+    margin-bottom: 10px;    /* Space below the heading */
+}
+
+/* This class is for subtitle text (if you add it back later) */
+.subtitle {
+    font-size: 1rem;  /* 1rem = default font size */
+}
+
+/* ============================================
+   VIDEO SECTION
+   ============================================ */
+
+/* Container that holds the video and overlays */
+.video-container {
+    position: relative;         /* Creates positioning context for absolute children */
+    padding: 30px;              /* Space around the video */
+    background-color: #f5f5f5;  /* Very light gray background */
+}
+
+/* IDs start with # - This targets the element with id="vimeo-player" */
+#vimeo-player {
+    width: 100%;           /* Take up full width of container */
+    height: auto;          /* Height adjusts automatically */
+    aspect-ratio: 16 / 9;  /* Maintain 16:9 video proportions */
+}
+
+/* ============================================
+   PLAY BUTTON - Center of video
+   ============================================ */
+
+/* Circular play button that appears in the center of the video */
+.play-button {
+    position: absolute;  /* Position relative to .video-container parent */
+    top: 50%;            /* Move down 50% from top */
+    left: 50%;           /* Move right 50% from left */
+    transform: translate(-50%, -50%);  /* Shift back by half its own size = perfect center */
+    background-color: rgba(0, 0, 0, 0.7);  /* rgba = red, green, blue, alpha(opacity) */
+    border: 3px solid white;    /* 3 pixel wide white border */
+    border-radius: 50%;         /* 50% makes a square into a circle */
+    width: 80px;                /* Button is 80 pixels wide */
+    height: 80px;               /* Button is 80 pixels tall */
+    cursor: pointer;            /* Changes mouse cursor to a hand pointer */
+    z-index: 5;                 /* Stacking order: higher = on top */
+    
+    /* Flexbox centers content both horizontally and vertically */
+    display: flex;              /* Enables flexible box layout */
+    align-items: center;        /* Centers content vertically */
+    justify-content: center;    /* Centers content horizontally */
+}
+
+/* The .hidden class hides elements - added/removed by JavaScript */
+.play-button.hidden {
+    display: none;  /* Removes element from page layout */
+}
+
+/* The play icon (▶) inside the button */
+.play-icon {
+    color: rgb(238, 239, 248);           /* White triangle */
+    font-size: 2rem;        /* Large size */
+    padding-left: 4px;      /* Slight nudge right to visually center the triangle */
+}
+
+/* :hover is a pseudo-class that applies when mouse is over the element */
+.play-button:hover {
+    background-color: rgba(0, 0, 0, 0.9);      /* Darker black on hover */
+    transform: translate(-50%, -50%) scale(1.1);  /* Keep centered, grow 10% bigger */
+}
+
+/* ============================================
+   OVERLAY - Appears when video reaches a timestamp
+   ============================================ */
+
+/* Dark semi-transparent layer that covers the entire video */
+.links-overlay {
+    position: absolute;     /* Position relative to .video-container */
+    top: 0;                 /* Align to top edge */
+    left: 0;                /* Align to left edge */
+    width: 100%;            /* Full width */
+    height: 100%;           /* Full height */
+    background-color: rgba(0, 0, 0, 0.8);  /* Black with 80% opacity */
+    z-index: 10;            /* Appears above play button (which is z-index: 5) */
+}
+
+/* When JavaScript adds the .hidden class, the overlay disappears */
+.links-overlay.hidden {
+    display: none;  /* Completely hidden */
+}
+
+/* White box that contains the navigation links */
+.overlay-content {
+    background-color: white;    /* White background */
+    padding: 30px;              /* Space inside the box */
+    margin: 50px auto;          /* 50px top/bottom, centered horizontally */
+    max-width: 400px;           /* Maximum width of 400 pixels */
+    text-align: center;         /* Center all text */
+    border: 2px solid #b6b6b6;  /* Gray border around the box */
+}
+
+/* The "Navigate to:" heading inside the overlay */
+.overlay-content h2 {
+    color: #b4b4b4;         /* Medium gray text */
+    margin-bottom: 20px;    /* Space below the heading */
+    font-size: 1.5rem;      /* Font size */
+}
+
+/* ============================================
+   NAVIGATION BUTTONS
+   ============================================ */
+
+/* Container that holds all the timestamp navigation buttons */
+.links-container {
+    margin-bottom: 20px;  /* Space below the buttons */
+}
+
+/* Each individual navigation button (created by JavaScript) */
+.nav-link {
+    background-color: #b6b6b6;  /* Medium gray background */
+    color: white;               /* White text */
+    padding: 12px 20px;         /* Space inside button (top/bottom left/right) */
+    margin-bottom: 10px;        /* Space between buttons */
+    border: none;               /* No border */
+    font-size: 1rem;            /* Text size */
+    cursor: pointer;            /* Show hand cursor when hovering */
+    display: block;             /* Makes button take full width */
+    width: 100%;                /* Stretch to full width of container */
+}
+
+/* When user hovers mouse over a navigation button */
+.nav-link:hover {
+    background-color: #a2a3a3;  /* Slightly darker gray */
+}
+
+/* The "Continue Watching" button at the bottom of the overlay */
+.close-button {
+    background-color: #888;  /* Gray background */
+    color: white;            /* White text */
+    padding: 10px 20px;      /* Space inside button */
+    border: none;            /* No border */
+    font-size: 1rem;         /* Text size */
+    cursor: pointer;         /* Hand cursor on hover */
+}
+
+/* When user hovers over the "Continue Watching" button */
+.close-button:hover {
+    background-color: #666;  /* Darker gray */
+}
+
+/* ============================================
+   MOBILE RESPONSIVE - Adjustments for phones/tablets
+   ============================================ */
+
+/* @media is a "media query" - applies styles only when conditions are met
+   This one applies when screen width is 768 pixels or less */
+@media (max-width: 768px) {
+    
+    body {
+        padding: 10px;  /* Less padding on small screens */
+    }
+
+    header {
+        padding: 20px;  /* Smaller header padding */
+    }
+
+    header h1 {
+        font-size: 1.5rem;  /* Smaller heading on mobile */
+    }
+
+    .video-container {
+        padding: 15px;  /* Less space around video */
+    }
+
+    .overlay-content {
+        margin: 20px;   /* Less margin on mobile */
+        padding: 20px;  /* Less padding inside the box */
+    }
+}
+
