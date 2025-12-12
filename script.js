@@ -13,7 +13,7 @@ const timestamps = [
      {
         time: 65, // Pause at 65 seconds
         links: [
-            { label: "CONTINUE", target: 35 }
+            { label: "CONTINUE", target: 77 }
         ]
     },
     {
@@ -26,7 +26,7 @@ const timestamps = [
     {
         time: 104, // Pause at 104 seconds
         links: [
-            { label: "CONTINUE", target: 35 }
+            { label: "CONTINUE", target: 133 }
         ]
     },
    
@@ -40,7 +40,7 @@ const timestamps = [
     {
         time: 187, // Pause at 187 seconds
         links: [
-            { label: "CONTINUE", target: 35 }
+            { label: "CONTINUE", target: 196 }
         ]
     },
      {
@@ -60,7 +60,7 @@ const timestamps = [
     {
         time: 224, // Pause at 224 seconds
         links: [
-            { label: "CONTINUE", target: 35 }
+            { label: "CONTINUE", target: 228 }
         ]
     },
      {
